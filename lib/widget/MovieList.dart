@@ -13,7 +13,7 @@ class MovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 30),
+      margin: EdgeInsets.only(bottom: 30, left: 24),
       child: Row(
         children: [
           ClipRRect(

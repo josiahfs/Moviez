@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moviez/hompage.dart';
+import 'package:moviez/view/hompage.dart';
 
 void main() {
   runApp(const MyApp());

@@ -19,12 +19,12 @@ class Homepage extends StatelessWidget {
         // backgroundColor: Colors.white,
         body: SafeArea(
           bottom: false,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 24),
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                Row(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 24),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
@@ -71,54 +71,60 @@ class Homepage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 30,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                height: 279,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  children: [
+                    SizedBox(
+                      width: 24,
+                    ),
+                    MovieCard(
+                      image: 'assets/images/image3.png',
+                      title: 'John Wick 4',
+                      genre: 'Action, Crime',
+                      rating: 5,
+                    ),
+                    MovieCard(
+                      image: 'assets/images/cover.png',
+                      title: 'Bohemian',
+                      genre: 'Documentary',
+                      rating: 3,
+                    ),
+                  ],
                 ),
-                Container(
-                  height: 279,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    children: [
-                      MovieCard(
-                        image: 'assets/images/image3.png',
-                        title: 'John Wick 4',
-                        genre: 'Action, Crime',
-                        rating: 5,
-                      ),
-                      MovieCard(
-                        image: 'assets/images/cover.png',
-                        title: 'Bohemian',
-                        genre: 'Documentary',
-                        rating: 3,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 32,
-                ),
-                Text(
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 24),
+                child: Text(
                   'From Disney',
                   style: TextStyle(fontWeight: FontWeight.w900, fontSize: 24),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                MovieList(
-                  image: 'assets/images/image7.png',
-                  title: 'Mulan Session',
-                  genre: 'History, War',
-                  rating: 3,
-                ),
-                MovieList(
-                  image: 'assets/images/image6.png',
-                  title: 'Beauty & Beast',
-                  genre: 'Sci-Fiction',
-                  rating: 5,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              MovieList(
+                image: 'assets/images/image7.png',
+                title: 'Mulan Session',
+                genre: 'History, War',
+                rating: 3,
+              ),
+              MovieList(
+                image: 'assets/images/image6.png',
+                title: 'Beauty & Beast',
+                genre: 'Sci-Fiction',
+                rating: 5,
+              ),
+            ],
           ),
         ),
         // ),
