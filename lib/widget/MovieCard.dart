@@ -15,6 +15,7 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 24),
+      width: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
