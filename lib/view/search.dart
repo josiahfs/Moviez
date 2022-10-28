@@ -98,25 +98,29 @@ class _SearchPageState extends State<SearchPage> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(bottom: 40),
-              child: Center(
-                child: Container(
-                  width: 220,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Color(0xff0D0846),
-                    borderRadius: BorderRadius.circular(37),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Suggest Movie',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
+              child: display_list.length != 0
+                  ? Center(
+                      child: InkWell(
+                        child: Container(
+                          width: 220,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Color(0xff0D0846),
+                            borderRadius: BorderRadius.circular(37),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Suggest Movie',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-              ),
+                    )
+                  : Center(),
             )
           ]),
         ),
