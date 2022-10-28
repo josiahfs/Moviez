@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:moviez/view/search.dart';
 import 'package:moviez/widget/MovieCard.dart';
 import 'package:moviez/widget/MovieList.dart';
 
@@ -50,7 +52,9 @@ class Homepage extends StatelessWidget {
                       ],
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(SearchPage());
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.horizontal(
