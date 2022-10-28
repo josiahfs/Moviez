@@ -1,5 +1,5 @@
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:moviez/model/movie_model.dart';
 import 'package:moviez/widget/MovieList.dart';
 
 class SearchPage extends StatefulWidget {
@@ -12,6 +12,15 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   TextEditingController textController = TextEditingController();
 
+  void updateList(String value) {
+    setState(() {
+      display_list = movie_list
+          .where((element) =>
+              element.title!.toLowerCase().contains(value.toLowerCase()))
+          .toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +29,20 @@ class _SearchPageState extends State<SearchPage> {
           padding: EdgeInsets.symmetric(horizontal: 24),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            AnimSearchBar(
+            Container(
               width: 327,
-              textController: textController,
-              onSuffixTap: SearchPage(),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.white),
+              child: TextField(
+                onChanged: (value) => updateList(value),
+                style: TextStyle(color: Color(0xff0D0846), fontSize: 16),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide.none),
+                    hintText: "eg: The Dark Knight",
+                    prefixIcon: Icon(Icons.search),
+                    prefixIconColor: Color(0xff0D0846)),
+              ),
             ),
             SizedBox(
               height: 35,
@@ -45,23 +64,17 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(
               height: 20,
             ),
-            MovieList(
-              image: 'assets/images/image7.png',
-              title: 'Mulan Session',
-              genre: 'History, War',
-              rating: 3,
-            ),
-            MovieList(
-              image: 'assets/images/image6.png',
-              title: 'Beauty & Beast',
-              genre: 'Sci-Fiction',
-              rating: 5,
-            ),
-            MovieList(
-              image: 'assets/images/image6.png',
-              title: 'Beauty & Beast',
-              genre: 'Sci-Fiction',
-              rating: 5,
+            Container(
+              height: 500,
+              child: ListView.builder(
+                itemBuilder: (context, index) => MovieList(
+                  image: display_list[index].image!,
+                  title: display_list[index].title!,
+                  genre: display_list[index].genre!,
+                  rating: display_list[index].rating!,
+                ),
+                itemCount: display_list.length,
+              ),
             ),
             Spacer(),
             Padding(
